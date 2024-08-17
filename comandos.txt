@@ -6,13 +6,13 @@ git config user.name
 git commit -m "aja"
 git branch -M
 git remote add origin https://github.com/DanielPilgrim/Api_2821726.git
-git push -u original main
+git push -u origin main
 
 actualizar el repositorio
 git pull
 git add .
 git commit -m "actualizacion"
-git push -u original main
+git push -u origin main
 
 crear una api llamada exportacion con los atributos:
 nameProducto, price, weight
@@ -20,3 +20,6 @@ subi a git
 desplegar en render
 enviar link del git
 url de render
+
+dilopezz@sena.edu.co
+enviar antes de las 11.59 p.m
