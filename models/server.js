@@ -1,13 +1,16 @@
-const express = require('express');
-const dbConnect = require('../database/config')
-require('../database/config')
-const {getVehicule,postVehicule} = require('../controllers/vehiculeController')
-const {getOwner,postOwner} = require('../controllers/ownerController')
+import express, { json } from 'express';
+import dbConnect from '../database/config.js';
+import '../database/config.js';
+
+import userRouter from '../routes/userRoute.js';
+import vehiculeRouter from '../routes/vehiculeRoute.js';
+import { getOwner, postOwner } from '../controllers/ownerController.js';
 
 class Server {
     constructor(){
         this.app = express();
         this.dbConnection(); 
+        this.pathUser = '/api/user';
         this.pathVehicule = '/api/vehicule';
         this.pathOwner = '/api/owner';
         this.route();
@@ -15,12 +18,15 @@ class Server {
     }
 
     async dbConnection(){  //llamar la coneccion de la base de datos
-        await dbConnect;
+        await dbConnect();
     }
     route(){
-        this.app.use(express.json())
-        this.app.get(this.pathVehicule, getVehicule)
-        this.app.post(this.pathVehicule, postVehicule)
+        this.app.use(json())
+        // this.app.get(this.pathVehicule, getVehicule)
+        // this.app.post(this.pathVehicule, postVehicule)
+        this.app.use(this.pathVehicule, vehiculeRouter)
+
+        this.app.use(this.pathUser, userRouter)
         //////////////////////////////////////////////////
         this.app.get(this.pathOwner, getOwner)
         this.app.post(this.pathOwner, postOwner)
@@ -32,5 +38,5 @@ class Server {
     }
 }
 
-module.exports = Server; // exportar la calse server
+export default Server; // exportar la calse server
 

@@ -15,7 +15,7 @@ git commit -m "actualizacion"
 git push -u origin main
 
 crear una api llamada exportacion con los atributos:
-nameProducto, price, weight
+nameProducto, price,
 subi a git
 desplegar en render
 enviar link del git

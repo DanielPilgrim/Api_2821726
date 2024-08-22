@@ -1,4 +1,4 @@
-const {model, Schema} = require('mongoose')
+import { model, Schema } from 'mongoose';
 
 const vehiculeSchema = new Schema({
     plate:{
@@ -23,5 +23,5 @@ const vehiculeSchema = new Schema({
 }
 )
 
-module.exports = model('vehicule', vehiculeSchema, 'vehicule'); //crea la coleccion si no existe 
+export default model('vehicule', vehiculeSchema, 'vehicule'); //crea la coleccion si no existe 
 

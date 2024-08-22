@@ -1,11 +1,12 @@
-const Owner = require('../models/owner')
+// const Owner = require('../models/owner')
+import Owner from '../models/owner.js'
 
-const getOwner = async(req,res) => {
+export async function getOwner(req,res) {
     const owners = await Owner.find()
     res.json(owners)
 }
 
-const postOwner = async(req,res) => {
+export async function postOwner(req,res) {
     let msg = 'owner inserted'
     const body =req.body
     try{
@@ -15,9 +16,4 @@ const postOwner = async(req,res) => {
         msg = error
     }
     res.json({msg:msg})
-}
-
-module.exports = {
-    getOwner,
-    postOwner
 }

@@ -1,4 +1,4 @@
-const {model, Schema} = require('mongoose')
+import { model, Schema } from 'mongoose';
 
 const ownerSchema = new Schema({
     id:{
@@ -23,5 +23,5 @@ const ownerSchema = new Schema({
 }
 )
 
-module.exports = model('owner', ownerSchema, 'owner'); //crea la coleccion si no existe 
+export default model('owner', ownerSchema, 'owner'); //crea la coleccion si no existe 
 
